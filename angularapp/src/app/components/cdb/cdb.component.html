@@ -1,38 +1,41 @@
 
 <div class="cdb-container">
-    <div class="title-container">
-        <h1>Cálculo do CDB</h1>
-    </div>
+    <div class="content-container">
+        <div class="title-container">
+            <h1>Cálculo do CDB</h1>
+        </div>
+        
+        <div class="form-container">
+            <form [formGroup]="form" (ngSubmit)="calculate()">
+                <div>
+                    <h4>Valor Monetário</h4>
+                    <mat-form-field>
+                        <input type="text" matInput formControlName="monetaryValue"/>
+                    </mat-form-field>
+                </div>
     
-    <div class="form-container">
-        <form [formGroup]="form" (ngSubmit)="calculate()">
-            <div>
-                <h4>Valor Monetário</h4>
-                <mat-form-field>
-                    <input type="text" matInput formControlName="monetaryValue"/>
-                </mat-form-field>
-            </div>
+                <div>
+                    <h4>Meses</h4>
+                    <mat-form-field>
+                        <input type="text" matInput formControlName="month"/>
+                    </mat-form-field>
+                </div>
+                
+                <button mat-raised-button color="primary" type="submit">Calcular</button>
+            </form>
+        </div>
+    
+        <div class="result-container" *ngIf="result">
+            <span>
+                <h1>Resultado Bruto</h1>
+                <h1 class="result">R$ {{ result.grossValue }}</h1>
+            </span>
+            <span>
+                <h1>Resultado Líquido</h1>
+                <h1 class="result">R$ {{ result.netValue }}</h1>
+            </span>
+        </div>
 
-            <div>
-                <h4>Meses</h4>
-                <mat-form-field>
-                    <input type="text" matInput formControlName="month"/>
-                </mat-form-field>
-            </div>
-            
-            <button mat-raised-button color="primary" type="submit">Calcular</button>
-        </form>
-    </div>
-
-    <div class="result-container" *ngIf="!result">
-        <span>
-            <h1>Resultado Bruto</h1>
-            <h1 class="result">1009.72</h1>
-        </span>
-        <span>
-            <h1>Resultado Líquido</h1>
-            <h1 class="result">782.53</h1>
-        </span>
     </div>
 
 </div>

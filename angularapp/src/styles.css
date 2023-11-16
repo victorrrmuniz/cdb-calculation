@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(231, 231, 255)}
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: url('src/assets/b3.jpeg');
+    background-size: cover;
+    background-position: 0 -80px;
+    background-repeat: no-repeat;
+}
