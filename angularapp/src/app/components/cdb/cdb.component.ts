@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { InvestmentDto } from 'src/app/models/investmentDto.model';
 import { CdbServiceService } from 'src/app/services/cdb-service.service';
 
 @Component({
@@ -10,19 +11,22 @@ import { CdbServiceService } from 'src/app/services/cdb-service.service';
 export class CdbComponent {
 
   form!: FormGroup;
+  result?: InvestmentDto;
 
   constructor(private fb: FormBuilder,
     private cdbService: CdbServiceService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
-      input: ['', Validators.required]
+      monetaryValue: ['', Validators.required],
+      month: ['', Validators.required]
     });
   }
 
   calculate() {
-    this.cdbService.calculate().subscribe(data => {
-      console.log(data)
+    this.cdbService.calculate(this.form.get('monetaryValue')?.value, this.form.get('month')?.value).subscribe(result => {
+      console.log(result)
+      this.result = result;
     });
   }
 }

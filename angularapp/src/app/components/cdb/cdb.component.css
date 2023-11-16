@@ -16,16 +16,42 @@
     font-weight: bolder;
 }
 
-
+.form-container {
+    margin-top: 32px;
+}
 
 .form-container form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    gap: 32px;
+    gap: 12px;
+}
+
+.form-container form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    gap: 24px
+}
+
+.form-container form div h4 {
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .form-container form button {
     height: 56px;
     width: 120px;
 }
+
+.result-container {
+    margin-top: 64px;
+}
+
+.result-container span h1:nth-child(1) {
+    font-weight: bolder;
+    font-size: 32px;
+}
+
+

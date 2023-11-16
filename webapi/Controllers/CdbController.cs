@@ -14,13 +14,11 @@ namespace webapi.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(double monetaryValue, int month)
         {
-            var result = _cdbService.Calculate();
-            if (result != null)
-                return Ok(result);
-            else
-                return BadRequest();
+            var result = _cdbService.Calculate(monetaryValue, month);
+
+            return Ok(result);
         }
     }
 }

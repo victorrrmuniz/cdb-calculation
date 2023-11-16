@@ -6,11 +6,33 @@
     
     <div class="form-container">
         <form [formGroup]="form" (ngSubmit)="calculate()">
-            <mat-form-field>
-                <input type="text" matInput formControlName="input"/>
-            </mat-form-field>
+            <div>
+                <h4>Valor Monetário</h4>
+                <mat-form-field>
+                    <input type="text" matInput formControlName="monetaryValue"/>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <h4>Meses</h4>
+                <mat-form-field>
+                    <input type="text" matInput formControlName="month"/>
+                </mat-form-field>
+            </div>
+            
             <button mat-raised-button color="primary" type="submit">Calcular</button>
         </form>
+    </div>
+
+    <div class="result-container" *ngIf="!result">
+        <span>
+            <h1>Resultado Bruto</h1>
+            <h1 class="result">1009.72</h1>
+        </span>
+        <span>
+            <h1>Resultado Líquido</h1>
+            <h1 class="result">782.53</h1>
+        </span>
     </div>
 
 </div>

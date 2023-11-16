@@ -1,7 +1,9 @@
-﻿namespace webapi.Services
+﻿using webapi.DTOs;
+
+namespace webapi.Services
 {
     public interface ICdbService
     {
-        double Calculate();
+        InvestmentDto Calculate(double monetaryValue, int month);
     }
 }
