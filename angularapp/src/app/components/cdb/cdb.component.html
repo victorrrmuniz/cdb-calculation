@@ -11,6 +11,7 @@
                     <h4>Valor Monetário</h4>
                     <mat-form-field>
                         <input type="text" matInput formControlName="monetaryValue"/>
+                        <mat-error *ngIf="!form.get('monetaryValue')?.valid">Insira o valor monetário</mat-error>
                     </mat-form-field>
                 </div>
     
@@ -18,6 +19,7 @@
                     <h4>Meses</h4>
                     <mat-form-field>
                         <input type="text" matInput formControlName="month"/>
+                        <mat-error *ngIf="!form.get('month')?.valid">Insira a quantidade de meses</mat-error>
                     </mat-form-field>
                 </div>
                 

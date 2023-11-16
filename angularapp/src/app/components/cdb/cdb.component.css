@@ -18,14 +18,27 @@
 
     padding: 64px;
     
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 0 8px 48px 0 rgba(0, 0, 0, 0.37);
 
     color: white;
+
+    animation: fade-up 1s;
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    100% {
+        opacity: translateY(0px) scale(1);
+    }
 }
 
 .title-container h1 {
@@ -70,6 +83,8 @@
     gap: 64px;
     justify-content: center;
     align-items: center;
+
+    animation: fade-up 0.5s;
 }
 
 .result-container span h1:nth-child(1) {

@@ -4,8 +4,8 @@ html, body { height: 100%; }
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background-image: url('src/assets/b3.jpeg');
-    background-size: cover;
-    background-position: 0 -80px;
+    background-image: url('src/assets/logo-b3.png');
+    background-position: 150px 150px;
     background-repeat: no-repeat;
+    background-color: rgb(24,28,108);
 }
