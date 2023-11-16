@@ -26,7 +26,6 @@ export class CdbComponent {
   calculate() {
     if (this.form.valid) {
       this.cdbService.calculate(this.form.get('monetaryValue')?.value, this.form.get('month')?.value).subscribe(result => {
-        console.log(result)
         this.result = result;
       });
     }
