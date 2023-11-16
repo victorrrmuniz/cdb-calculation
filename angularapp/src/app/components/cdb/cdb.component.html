@@ -1,0 +1,16 @@
+
+<div class="cdb-container">
+    <div class="title-container">
+        <h1>Cálculo do CDB</h1>
+    </div>
+    
+    <div class="form-container">
+        <form [formGroup]="form" (ngSubmit)="calculate()">
+            <mat-form-field>
+                <input type="text" matInput formControlName="input"/>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Calcular</button>
+        </form>
+    </div>
+
+</div>
