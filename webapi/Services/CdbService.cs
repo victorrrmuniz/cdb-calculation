@@ -17,7 +17,8 @@ namespace webapi.Services
                 throw new InvalidDataException("O mês deve ser positivo");
 
             var grossValue = CalculateGrossValue(monetaryValue, month);
-            var netValue = CalculateNetValue(grossValue, month);
+            var yield = grossValue - monetaryValue;
+            var netValue = monetaryValue + CalculateNetIncome(yield, month);
 
             return new InvestmentDto
             {
@@ -32,19 +33,19 @@ namespace webapi.Services
             return Math.Round(grossValue, 2);
         }
 
-        private double CalculateNetValue(double grossValue, int month)
+        private double CalculateNetIncome(double yield, int month)
         {
-            double netValue;
+            double netIncome;
             if (month <= 6)
-                netValue = grossValue * (1 - TAX_UP_TO_6_MONTHS);
+                netIncome = yield * (1 - TAX_UP_TO_6_MONTHS);
             else if (month <= 12)
-                netValue = grossValue * (1 - TAX_UP_TO_12_MONTHS);
+                netIncome = yield * (1 - TAX_UP_TO_12_MONTHS);
             else if (month <= 24)
-                netValue = grossValue * (1 - TAX_UP_TO_24_MONTHS);
+                netIncome = yield * (1 - TAX_UP_TO_24_MONTHS);
             else
-                netValue =  grossValue * (1 - TAX_OVER_24_MONTHS);
+                netIncome =  yield * (1 - TAX_OVER_24_MONTHS);
 
-            return Math.Round(netValue, 2);
+            return Math.Round(netIncome, 2);
 
         }
     }
