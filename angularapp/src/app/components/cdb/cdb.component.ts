@@ -14,12 +14,12 @@ export class CdbComponent {
   result?: InvestmentDto;
 
   constructor(private fb: FormBuilder,
-    private cdbService: CdbService) { }
+    public cdbService: CdbService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
-      monetaryValue: ['', Validators.required],
-      month: ['', Validators.required]
+      monetaryValue: ['', [Validators.required, Validators.min(0)]],
+      month: ['', [Validators.required, Validators.min(1)]]
     });
   }
 
