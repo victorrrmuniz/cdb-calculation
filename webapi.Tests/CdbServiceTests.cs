@@ -28,22 +28,14 @@ namespace webapi.Tests
         }
 
         [Test]
-        public void Calculate_WithNegativeMonths_ShouldThrowException()
+        [TestCase(-1000, 6)]
+        [TestCase(1000, 0)]
+        [TestCase(-1000, 0)]
+        public void Calculate_WithInvalidMonetaryValueOrMonths_ShouldThrowException(double monetaryValue, int month)
         {
-            var monetaryValue = 1000;
-            var month = 0;
-
             Assert.Throws<InvalidDataException>(() => _cdbService.Calculate(monetaryValue, month));
         }
 
-        [Test]
-        public void Calculate_WithNegativeMonetaryValue_ShouldThrowException()
-        {
-            var monetaryValue = -1000;
-            var month = 6;
-
-            Assert.Throws<InvalidDataException>(() => _cdbService.Calculate(monetaryValue, month));
-        }
 
         [Test]
         [TestCase(10_000_000_000, 360)]
