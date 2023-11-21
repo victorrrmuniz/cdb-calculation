@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InvestmentDto } from 'src/app/models/investmentDto.model';
-import { CdbServiceService } from 'src/app/services/cdb-service.service';
+import { CdbService } from 'src/app/services/cdb.service';
 
 @Component({
   selector: 'app-cdb',
@@ -14,7 +14,7 @@ export class CdbComponent {
   result?: InvestmentDto;
 
   constructor(private fb: FormBuilder,
-    private cdbService: CdbServiceService) { }
+    private cdbService: CdbService) { }
 
   ngOnInit() {
     this.form = this.fb.group({

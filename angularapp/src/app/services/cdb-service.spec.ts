@@ -1,23 +1,23 @@
 import { TestBed } from '@angular/core/testing';
-import { CdbServiceService } from './cdb-service.service';
+import { CdbService } from './cdb.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-describe('CdbServiceService', () => {
-  let cdbService: CdbServiceService;
+describe('CdbService', () => {
+  let cdbService: CdbService;
   let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [CdbServiceService]
+      providers: [CdbService]
     });
-    cdbService = TestBed.inject(CdbServiceService);
+    cdbService = TestBed.inject(CdbService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
     expect(cdbService).toBeTruthy();
-    expect(cdbService instanceof CdbServiceService).toBeTruthy();
+    expect(cdbService instanceof CdbService).toBeTruthy();
   });
 
   it('should send an http request with the correct parameters', () => {

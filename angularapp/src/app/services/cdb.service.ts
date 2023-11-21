@@ -6,7 +6,7 @@ import { InvestmentDto } from '../models/investmentDto.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CdbServiceService {
+export class CdbService {
 
   baseAddress: string = 'https://localhost:7088';
 
