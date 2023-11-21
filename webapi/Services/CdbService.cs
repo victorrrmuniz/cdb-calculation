@@ -13,8 +13,7 @@ namespace webapi.Services
 
         public InvestmentDto Calculate(double monetaryValue, int month)
         {
-            if (month < 1)
-                throw new InvalidDataException("O mês deve ser positivo");
+            VerifyMonetaryValueAndMonthValues(monetaryValue, month);
 
             var grossValue = CalculateGrossValue(monetaryValue, month);
             var yield = grossValue - monetaryValue;
@@ -46,7 +45,15 @@ namespace webapi.Services
                 netIncome =  yield * (1 - TAX_OVER_24_MONTHS);
 
             return Math.Round(netIncome, 2);
+        }
 
+        private void VerifyMonetaryValueAndMonthValues(double monetaryValue, int month)
+        {
+            if (monetaryValue < 0)
+                throw new InvalidDataException("O valor monetário não pode ser inferior a 0");
+
+            if (month < 1)
+                throw new InvalidDataException("O mês deve ser positivo");
         }
     }
 }
