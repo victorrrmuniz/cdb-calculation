@@ -10,7 +10,7 @@
                 <div>
                     <h4>Valor Monetário</h4>
                     <mat-form-field>
-                        <input type="number" matInput formControlName="monetaryValue" min="0" step="50"/>
+                        <input type="number" matInput formControlName="monetaryValue" min="0" step="100"/>
                         <mat-error *ngIf="!form.get('monetaryValue')?.valid">Insira o valor monetário</mat-error>
                     </mat-form-field>
                 </div>

@@ -28,23 +28,23 @@ namespace webapi.Services
 
         private double CalculateGrossValue(double monetaryValue, int month)
         {
-            var finalValue = monetaryValue * Math.Pow(1 + (CDI * TB), month);
-            return Math.Round(finalValue, 2);
+            var grossValue = monetaryValue * Math.Pow(1 + (CDI * TB), month);
+            return Math.Round(grossValue, 2);
         }
 
         private double CalculateNetValue(double grossValue, int month)
         {
-            double result = 0;
+            double netValue;
             if (month <= 6)
-                result = grossValue * (1 - TAX_UP_TO_6_MONTHS);
+                netValue = grossValue * (1 - TAX_UP_TO_6_MONTHS);
             else if (month <= 12)
-                result = grossValue * (1 - TAX_UP_TO_12_MONTHS);
+                netValue = grossValue * (1 - TAX_UP_TO_12_MONTHS);
             else if (month <= 24)
-                result = grossValue * (1 - TAX_UP_TO_24_MONTHS);
+                netValue = grossValue * (1 - TAX_UP_TO_24_MONTHS);
             else
-                result =  grossValue * (1 - TAX_OVER_24_MONTHS);
+                netValue =  grossValue * (1 - TAX_OVER_24_MONTHS);
 
-            return Math.Round(result, 2);
+            return Math.Round(netValue, 2);
 
         }
     }
